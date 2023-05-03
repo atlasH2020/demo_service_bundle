@@ -1,0 +1,76 @@
+{
+  "timeWindow": "P1H",
+  "timestamps": [
+    "2021-05-12T20:00:00Z",
+    "2021-05-13T20:00:00Z",
+    "2021-05-14T20:00:00Z"
+  ],
+  "data": [
+    {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          12.554,
+          43.43234,
+          2
+        ]
+      },
+      "ATMO__RAINFALL": {
+        "total": [
+          0,
+          3,
+          2
+        ]
+      },
+      "ATMO__RAINFLOW": {
+        "min": [
+          0,
+          1,
+          1
+        ],
+        "max": [
+          0,
+          4,
+          3
+        ],
+        "avg": [
+          0,
+          2,
+          2
+        ],
+        "total": [
+          0,
+          3,
+          2
+        ]
+      }
+    },
+    {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          12.554,
+          43.43234,
+          0
+        ]
+      },
+      "SOIL__T": {
+        "min": [
+          8,
+          null,
+          6.7
+        ],
+        "max": [
+          9,
+          null,
+          7.3
+        ],
+        "avg": [
+          8.5,
+          null,
+          7
+        ]
+      }
+    }
+  ]
+}
