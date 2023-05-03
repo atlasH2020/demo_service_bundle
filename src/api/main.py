@@ -7,6 +7,8 @@ from flask import Flask
 from . import config, internal, sensor_data, field_data
 from .auth.extensions import jwt
 
+logger = logging.getLogger(__name__)
+
 
 def create_app() -> Flask:
     # Create flask app
@@ -17,6 +19,7 @@ def create_app() -> Flask:
     app.logger.setLevel(gunicorn_logger.level)
     config.init_config(app)
     configure_extensions(app)
+    app.logger.info("api ready")
 
     return app
 
