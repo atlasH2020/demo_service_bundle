@@ -25,14 +25,14 @@ Launch with docker-compose:
 
 The default authorization server which may be used "out of the box" has the following configuration parameters:
 
-| parameter     | value                               |
-|---------------|-------------------------------------|
-| Callback URL  | http://localhost:8000/auth/callback |
-| Auth URL      | https://agricircle-test.auth.us-east-2.amazoncognito.com/oauth2/auth |
-| Token URL     | https://agricircle-test.auth.us-east-2.amazoncognito.com/oauth2/token |
-| Client ID     | 7l4tup7uhdipg237qp455a7j7 |
-| Client Secret | 1okp4i4dl3lpl8g2hfp7302iiiqrurdqaockpgkdibska22n54ko |
-| Scope         | openid |
+| parameter     | value                                                                     |
+|---------------|---------------------------------------------------------------------------|
+| Callback URL  | http://localhost:8000/auth/callback                                       |
+| Auth URL      | https://agricircle-test.auth.us-east-2.amazoncognito.com/oauth2/authorize |
+| Token URL     | https://agricircle-test.auth.us-east-2.amazoncognito.com/oauth2/token     |
+| Client ID     | 7l4tup7uhdipg237qp455a7j7                                                 |
+| Client Secret | 1okp4i4dl3lpl8g2hfp7302iiiqrurdqaockpgkdibska22n54ko                      |
+| Scope         | openid                                                                    |
 
 which can be used to obtain an OAuth2 access token (e.g. with Postman), using the pre-configured **atlas@demo.com** user with password: **atlas_demo**.
 
