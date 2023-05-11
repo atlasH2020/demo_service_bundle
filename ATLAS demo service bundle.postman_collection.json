@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "2a8f62a5-6c25-4832-995c-7772fc812109",
+		"name": "ATLAS demo service bundle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtain field_data token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var res = JSON.parse(responseBody);\r",
+							"if (res?.access_token) {\r",
+							"    pm.collectionVariables.set(\"access_token\", res.access_token);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "3e51b614-8ff0-4352-b4e0-39b392a7e9cd",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://sensorsystems.iais.fraunhofer.de/api/auth/54f28bb5-c325-4e3b-b433-2416324e2550/de.iais.fraunhofer.field_data/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://sensorsystems.iais.fraunhofer.de/api/auth/54f28bb5-c325-4e3b-b433-2416324e2550/de.iais.fraunhofer.field_data/auth",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "atlas_demo",
+							"type": "string"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8000/auth/callback",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "refresh_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI2MDdiNTllMy0zOTI4LTQyMGMtODMwMy0xNzlmMzIzODNlMzUifQ.eyJpYXQiOjE2ODM3OTc5ODYsImp0aSI6IjFhMDVlOGY5LWQyZjktNGNmMy1hZmRiLTdlYTBiMTEwZTY2MiIsImlzcyI6Imh0dHBzOi8vc2Vuc29yc3lzdGVtcy5pYWlzLmZyYXVuaG9mZXIuZGUvYXV0aC9yZWFsbXMvZGVtb19zZXJ2aWNlX2J1bmRsZSIsImF1ZCI6Imh0dHBzOi8vc2Vuc29yc3lzdGVtcy5pYWlzLmZyYXVuaG9mZXIuZGUvYXV0aC9yZWFsbXMvZGVtb19zZXJ2aWNlX2J1bmRsZSIsInN1YiI6Ijk3ODA0YmViLWNhNzQtNDEyYS04ODAwLWE1YTRhYjBkYjgzMiIsInR5cCI6Ik9mZmxpbmUiLCJhenAiOiJhdGxhcyIsInNlc3Npb25fc3RhdGUiOiIxMGMxODUxNi1lMmU5LTQzNzgtOTQ5ZC1kZTgyZmFkNjQzZGUiLCJzY29wZSI6ImVtYWlsIG9mZmxpbmVfYWNjZXNzIn0.0hdK5GGDEfTticR_GaK5LK12MW9iEYNR5iUYoO50H-A",
+							"type": "default"
+						},
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "default"
+						},
+						{
+							"key": "client_id",
+							"value": "atlas_demo",
+							"type": "default"
+						},
+						{
+							"key": "client_secret",
+							"value": "3e51b614-8ff0-4352-b4e0-39b392a7e9cd",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sensorsystems.iais.fraunhofer.de/api/auth/54f28bb5-c325-4e3b-b433-2416324e2550/de.iais.fraunhofer.field_data/token",
+					"protocol": "https",
+					"host": [
+						"sensorsystems",
+						"iais",
+						"fraunhofer",
+						"de"
+					],
+					"path": [
+						"api",
+						"auth",
+						"54f28bb5-c325-4e3b-b433-2416324e2550",
+						"de.iais.fraunhofer.field_data",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get fields",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{field_data_url}}/fields",
+					"host": [
+						"{{field_data_url}}"
+					],
+					"path": [
+						"fields"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "access_token",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "field_data_url",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "sensor_data_url",
+			"value": "",
+			"type": "default"
+		}
+	]
+}

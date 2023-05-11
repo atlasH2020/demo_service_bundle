@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  web:
+    image: demo_service_bundle
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - JWT_JWKS_URI=https://cognito-idp.us-east-2.amazonaws.com/us-east-2_53a2KyBTh/.well-known/jwks.json
+      - JWT_ISSUER=https://cognito-idp.us-east-2.amazonaws.com/us-east-2_53a2KyBTh
